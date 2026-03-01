@@ -302,6 +302,13 @@ impl Color for RGBA {
             (max - min) / (2.0 - (max + min))
         };
 
+        // avoid the following floating-point imprecision:
+        // max = 1.0
+        // min = 0.16862746
+        // luminosity = 0.58431375
+        // saturation = 1.0000001
+        let saturation = saturation.clamp(0.0, 1.0);
+
         // To calculate the hue, we look at which value (r, g, or b) is the max.
         // Based on that, we subtract the difference between the other two values,
         // adding 120 or 240 deg to account for the degrees on the color wheel, and
