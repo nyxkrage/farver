@@ -932,4 +932,12 @@ mod tests {
         assert_eq!(String::from("hsl(6, 93%, 71%)"), hsl.to_string());
         assert_eq!(String::from("hsla(6, 93%, 71%, 0.50)"), hsla.to_string());
     }
+
+    #[test]
+    fn whiskers_issue_32() {
+        // https://github.com/catppuccin/whiskers/issues/32
+        let weird_color = rgb(255, 131, 43);
+        let weird_color_hsl = weird_color.to_hsla();
+        assert_eq!(weird_color_hsl.to_rgb(), weird_color);
+    }
 }
