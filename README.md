@@ -9,7 +9,7 @@ A Rust converter to transform CSS colors. 🎨
 Add the `farver` crate to your `Cargo.toml`'s list of dependencies:
 ```rust
 [dependencies]
-farver = "3.1.0"
+farver = "3.2.1"
 ```
 
 ## What is farver?
