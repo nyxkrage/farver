@@ -1,4 +1,4 @@
-use crate::{hsl, hsla, rgb, rgba, Color};
+use crate::Color;
 use bevy::render::color::Color as BevyColor;
 
 impl Into<BevyColor> for crate::RGB {
@@ -33,7 +33,10 @@ impl Into<BevyColor> for crate::HSLA {
 }
 
 #[cfg(test)]
+#[test]
 fn test() {
+    use crate::{hsl, hsla, rgb, rgba};
+
     let expected_hsla = BevyColor::hsla(128., 1., 1., 1.);
     let actual_hsl = hsl(128, 100, 100);
     let actual_hsla = hsla(128, 100, 100, 1.);

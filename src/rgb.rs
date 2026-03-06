@@ -1,5 +1,11 @@
 use super::{deg, percent, Angle, Color, Ratio, HSL, HSLA};
+#[cfg(not(feature = "ansi_term"))]
 use std::fmt;
+#[cfg(feature = "ansi_term")]
+use std::{
+    borrow::Cow,
+    fmt::{self, Debug},
+};
 
 /// Constructs a RGB Color from numerical values, similar to the
 /// [`rgb` function](css-rgb) in CSS.
@@ -175,7 +181,7 @@ impl Color for RGB {
         <S as ToOwned>::Owned: Debug,
     {
         let rgb = self.to_rgb();
-        ansi_term::Colour::RGB(rgb.r.as_u8(), rgb.g.as_u8(), rgb.g.as_u8()).paint(input)
+        ansi_term::Colour::RGB(rgb.r.as_u8(), rgb.g.as_u8(), rgb.b.as_u8()).paint(input)
     }
 }
 
@@ -436,7 +442,7 @@ impl Color for RGBA {
         <S as ToOwned>::Owned: Debug,
     {
         let rgb = self.to_rgb();
-        ansi_term::Colour::RGB(rgb.r.as_u8(), rgb.g.as_u8(), rgb.g.as_u8()).paint(input)
+        ansi_term::Colour::RGB(rgb.r.as_u8(), rgb.g.as_u8(), rgb.b.as_u8()).paint(input)
     }
 }
 

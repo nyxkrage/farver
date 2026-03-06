@@ -1,5 +1,3 @@
-#[cfg(feature = "ansi_term")]
-mod ansi_term;
 #[cfg(feature = "bevy")]
 mod bevy;
 #[cfg(feature = "palette")]

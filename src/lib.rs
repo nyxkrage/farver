@@ -1,3 +1,6 @@
+#[cfg(feature = "ansi_term")]
+use std::{borrow::Cow, fmt::Debug};
+
 mod angle;
 mod hsl;
 mod integrations;

@@ -162,6 +162,8 @@ impl<'de> Deserialize<'de> for crate::HSLA {
 
 #[cfg(test)]
 mod tests {
+    use serde::Deserialize;
+
     #[test]
     fn no_alpha_json_deserializing() {
         let input_str = r##"{"color": "#010203"}"##;
